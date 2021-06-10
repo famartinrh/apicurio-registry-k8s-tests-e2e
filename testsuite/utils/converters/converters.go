@@ -46,7 +46,7 @@ func ConvertersTestCase(suiteCtx *types.SuiteContext, testContext *types.TestCon
 
 	apicurioDebeziumImage := &types.OcpImageReference{
 		ExternalImage: "localhost:5000/apicurio-debezium:latest-ci",
-		InternalImage: "localhost:5000/apicurio-debezium:latest-ci",
+		InternalImage: "kind-registry:5000/apicurio-debezium:latest-ci",
 	}
 
 	if suiteCtx.IsOpenshift {
