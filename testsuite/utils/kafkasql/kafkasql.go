@@ -437,7 +437,7 @@ func deployStrimziOperator(clientset *kubernetes.Clientset, namespace string) bo
 	kubernetescli.Execute("create", "-f", bundlePath, "-n", namespace)
 
 	// sh("oc wait deployment/strimzi-cluster-operator --for condition=available --timeout=180s")
-	timeout := 120 * time.Second
+	timeout := 180 * time.Second
 	log.Info("Waiting for strimzi operator to be ready ", "timeout", timeout)
 	err = wait.Poll(utils.APIPollInterval, timeout, func() (bool, error) {
 		od, err := clientset.AppsV1().Deployments(namespace).Get(context.TODO(), "strimzi-cluster-operator", metav1.GetOptions{})
